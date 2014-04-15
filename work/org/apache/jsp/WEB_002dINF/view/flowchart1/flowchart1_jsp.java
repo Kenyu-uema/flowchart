@@ -75,6 +75,9 @@ public final class flowchart1_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<body>\n");
       out.write("\t\t<h1>フローチャート問題1</h1>\n");
       out.write("\t\t<h3>問題1.箱に3種類のボールが入っています。それぞれ何個ずつ入っているか表示せよ。</h3>\n");
+      out.write("\t\t\t<p>");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${message}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("</p>\n");
       out.write("\t\t\t\t");
       if (_jspx_meth_c_005fforEach_005f0(_jspx_page_context))
         return;
@@ -102,13 +105,13 @@ public final class flowchart1_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fstep_005fend_005fbegin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/view/flowchart1/flowchart1.jsp(9,4) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart1/flowchart1.jsp(10,4) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("m");
-    // /WEB-INF/view/flowchart1/flowchart1.jsp(9,4) name = begin type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart1/flowchart1.jsp(10,4) name = begin type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setBegin(0);
-    // /WEB-INF/view/flowchart1/flowchart1.jsp(9,4) name = step type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart1/flowchart1.jsp(10,4) name = step type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setStep(1);
-    // /WEB-INF/view/flowchart1/flowchart1.jsp(9,4) name = end type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart1/flowchart1.jsp(10,4) name = end type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setEnd(2);
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {

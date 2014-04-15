@@ -1,10 +1,10 @@
-package org.apache.jsp.WEB_002dINF.view.flowchart3;
+package org.apache.jsp.WEB_002dINF.view.flowchart4;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class flowchart3_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class flowchart4_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -70,24 +70,25 @@ public final class flowchart3_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<html>\n");
       out.write("\t<head>\n");
-      out.write("\t\t<title>フローチャート問題3</title>\n");
+      out.write("\t\t<title>フローチャート問題4</title>\n");
       out.write("\t</head>\n");
       out.write("\t\t<body>\n");
-      out.write("\t\t<h1>フローチャート問題3</h1>\n");
-      out.write("\t\t<h3>問題3.ランダムに入力された2桁の数字10個を昇順でソートし表示せよ。</h3>\n");
-      out.write("\t\t\t\t<p>");
+      out.write("\t\t<h1>フローチャート問題4</h1>\n");
+      out.write("\t\t<h3>問題4.入力された1～10の数字を、奇数と偶数に分けてそれぞれの合計を計算するフローチャートを考えよ。</h3>\n");
+      out.write("\t\t<h3>尚、それぞれの合計が正しい事を確認する機能を入れる事。</h3>\n");
+      out.write("\t\t\t<p>");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${message}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("</p>\n");
-      out.write("\t\t\t<p>ソート前:");
+      out.write("\t\t\t\t<p>入力値");
       if (_jspx_meth_c_005fforEach_005f0(_jspx_page_context))
         return;
       out.write("</p>\n");
-      out.write("\n");
-      out.write("\t\t\t<p>ソート後:");
-      if (_jspx_meth_c_005fforEach_005f1(_jspx_page_context))
-        return;
+      out.write("\t\t\t<p>偶数の合計 &nbsp; ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${oSum}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("</p>\n");
-      out.write("\n");
+      out.write("\t\t\t<p>奇数の合計 &nbsp; ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${eSum}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("</p>\n");
       out.write("\t\t</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -111,13 +112,13 @@ public final class flowchart3_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fstep_005fend_005fbegin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/view/flowchart3/flowchart3.jsp(10,11) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart4/flowchart4.jsp(11,10) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("m");
-    // /WEB-INF/view/flowchart3/flowchart3.jsp(10,11) name = begin type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart4/flowchart4.jsp(11,10) name = begin type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setBegin(0);
-    // /WEB-INF/view/flowchart3/flowchart3.jsp(10,11) name = step type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart4/flowchart4.jsp(11,10) name = step type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setStep(1);
-    // /WEB-INF/view/flowchart3/flowchart3.jsp(10,11) name = end type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart4/flowchart4.jsp(11,10) name = end type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setEnd(10);
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
@@ -125,10 +126,10 @@ public final class flowchart3_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
+          out.write("\t\t\t\t\t ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${num[m]}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\n");
           out.write("\t\t\t\t");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${random[m]}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write(" &nbsp; &nbsp;\n");
-          out.write("\t\t\t");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -144,51 +145,6 @@ public final class flowchart3_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspx_th_c_005fforEach_005f0.doFinally();
       _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fstep_005fend_005fbegin.reuse(_jspx_th_c_005fforEach_005f0);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_c_005fforEach_005f1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fstep_005fend_005fbegin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
-    _jspx_th_c_005fforEach_005f1.setParent(null);
-    // /WEB-INF/view/flowchart3/flowchart3.jsp(14,11) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setVar("m");
-    // /WEB-INF/view/flowchart3/flowchart3.jsp(14,11) name = begin type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setBegin(0);
-    // /WEB-INF/view/flowchart3/flowchart3.jsp(14,11) name = step type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setStep(1);
-    // /WEB-INF/view/flowchart3/flowchart3.jsp(14,11) name = end type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setEnd(9);
-    int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_005fforEach_005f1 = _jspx_th_c_005fforEach_005f1.doStartTag();
-      if (_jspx_eval_c_005fforEach_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\n");
-          out.write("\t\t\t\t");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${sort[m]}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write(" &nbsp; &nbsp;\n");
-          out.write("\t\t\t");
-          int evalDoAfterBody = _jspx_th_c_005fforEach_005f1.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_005fforEach_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_005fforEach_005f1[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_005fforEach_005f1.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_005fforEach_005f1.doFinally();
-      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fstep_005fend_005fbegin.reuse(_jspx_th_c_005fforEach_005f1);
     }
     return false;
   }

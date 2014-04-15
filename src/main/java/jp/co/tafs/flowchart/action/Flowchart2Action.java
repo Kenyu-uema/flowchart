@@ -15,7 +15,6 @@ public class Flowchart2Action {
 	@Execute(validator = false)
 	public String index() {
 		int a;
-
 		int c = 0;
 
 		//2進数

@@ -10,19 +10,21 @@ public class Flowchart1Action {
 
 	public String[] balltype;
 
-	public Integer[] count;
+	public int[] count;
+	public String message;
 
 	@Execute(validator = false)
 	public String index() {
 		balltype = new String[3];
-		count = new Integer[3];
-		ballbox.add("ボール1");
-		ballbox.add("ボール2");
-		ballbox.add("ボール1");
-		ballbox.add("ボール2");
-		ballbox.add("ボール3");
-		ballbox.add("ボール3");
-		ballbox.add("ボール1");
+		count = new int[3];
+		ballbox.add("野球ボール");
+		ballbox.add("テニスボール");
+		ballbox.add("ゴルフボール");
+		ballbox.add("テニスボール");
+		ballbox.add("ゴルフボール");
+		ballbox.add("野球ボール");
+		ballbox.add("野球ボール");
+		ballbox.add("ゴルフボール");
 
 		balltype[0] = ballbox.get(0);
 
@@ -31,18 +33,22 @@ public class Flowchart1Action {
 		int x = 0;
 
 		//3種類のボールを特定
-		for (x = 0; x < ballbox.size(); x++) {
-			if (balltype[0] == ballbox.get(x)) {
-			} else {
-				if (balltype[1] == ballbox.get(x)) {
+		try {
+			for (x = 0; x < ballbox.size(); x++) {
+				if (balltype[0] == ballbox.get(x)) {
 				} else {
-					if (balltype[2] == ballbox.get(x)) {
+					if (balltype[1] == ballbox.get(x)) {
 					} else {
-						balltype[t] = ballbox.get(x);
-						t = t + 1;
+						if (balltype[2] == ballbox.get(x)) {
+						} else {
+							balltype[t] = ballbox.get(x);
+							t = t + 1;
+						}
 					}
 				}
 			}
+		} catch (ArrayIndexOutOfBoundsException e) {
+			message = "3種類以上あります。";
 		}
 
 		//3種類のボールをカウント
