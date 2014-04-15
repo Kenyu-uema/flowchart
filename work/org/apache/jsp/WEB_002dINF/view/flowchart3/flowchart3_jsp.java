@@ -1,10 +1,10 @@
-package org.apache.jsp.WEB_002dINF.view.flowchart1;
+package org.apache.jsp.WEB_002dINF.view.flowchart3;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class flowchart1_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class flowchart3_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -70,14 +70,15 @@ public final class flowchart1_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<html>\n");
       out.write("\t<head>\n");
-      out.write("\t\t<title>フローチャート問題1</title>\n");
+      out.write("\t\t<title>フローチャート問題3</title>\n");
       out.write("\t</head>\n");
       out.write("\t\t<body>\n");
-      out.write("\t\t<h1>フローチャート問題1</h1>\n");
-      out.write("\t\t<h3>問題1.箱に3種類のボールが入っています。それぞれ何個ずつ入っているか表示せよ。</h3>\n");
-      out.write("\t\t\t\t");
+      out.write("\t\t<h1>フローチャート問題3</h1>\n");
+      out.write("\t\t<h3>問題3.ランダムに入力された2桁の数字10個を昇順でソートし表示せよ。</h3>\n");
+      out.write("\t\t\t");
       if (_jspx_meth_c_005fforEach_005f0(_jspx_page_context))
         return;
+      out.write("\n");
       out.write("\n");
       out.write("\t\t</body>\n");
       out.write("</html>");
@@ -102,26 +103,24 @@ public final class flowchart1_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fstep_005fend_005fbegin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/view/flowchart1/flowchart1.jsp(9,4) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart3/flowchart3.jsp(9,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("m");
-    // /WEB-INF/view/flowchart1/flowchart1.jsp(9,4) name = begin type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart3/flowchart3.jsp(9,3) name = begin type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setBegin(0);
-    // /WEB-INF/view/flowchart1/flowchart1.jsp(9,4) name = step type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/view/flowchart3/flowchart3.jsp(9,3) name = step type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setStep(1);
-    // /WEB-INF/view/flowchart1/flowchart1.jsp(9,4) name = end type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setEnd(2);
+    // /WEB-INF/view/flowchart3/flowchart3.jsp(9,3) name = end type = int reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setEnd(9);
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
       int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
       if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("\t\t\t\t\t");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${m + 1}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write(" 種類目 ");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${count[m]}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("<br>\n");
           out.write("\t\t\t\t");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${random[m]}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write(" &nbsp; &nbsp;\n");
+          out.write("\t\t\t");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
