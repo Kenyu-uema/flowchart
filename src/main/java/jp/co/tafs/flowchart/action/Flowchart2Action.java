@@ -10,7 +10,12 @@ public class Flowchart2Action {
 
 		int a;
 		int c = 0;
+		if (String.valueOf(args[0]).matches("^[-.0-9]+$")) {
 
+		} else {
+			System.out.print("数字以外があります。");
+			return;
+		}
 		//進数変換
 		int b = Integer.valueOf(args[0]);
 		for (a = 100; a > 0;) {
@@ -24,6 +29,8 @@ public class Flowchart2Action {
 		}
 		for (int z = 0; z < count.size(); z++) {
 			System.out.print(count.get(z));
+
 		}
+
 	}
 }

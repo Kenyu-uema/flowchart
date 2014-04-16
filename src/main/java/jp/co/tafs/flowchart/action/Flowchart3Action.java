@@ -1,33 +1,42 @@
 package jp.co.tafs.flowchart.action;
 
-import java.util.Random;
-
 public class Flowchart3Action {
 
 	public static void main(String[] args) {
 		int c;
-		String b;
-		String[] sort = new String[10];
-		int[] random = new int[10];
-		String message;
+		int b;
+		int[] sort = new int[10];
 
-		Random ran = new Random();
-
-		if (0 == 0) {
-
+		for (c = 0; c < 10; c++) {
+			if (args[c].matches("^[-.0-9]+$")) {
+			} else {
+				System.out.print("数字以外があります。");
+				return;
+			}
+			if (Integer.valueOf(args[c]) >= 10 && Integer.valueOf(args[c]) <= 99) {
+			} else {
+				System.out.print("2桁以外の数字があります。");
+				return;
+			}
+			if (args.length == 10) {
+			} else {
+				System.out.print("数字の数が10個ではありません。");
+				return;
+			}
 		}
 
-		try {
-			for (c = 0; c < args.length; c++) {
-				sort[c] = args[c];
+		for (c = 0; c < args.length; c++) {
+			sort[c] = Integer.valueOf(args[c]);
+			for (int a = (c + 1); a < 10; a++) {
+				if (sort[c] != Integer.valueOf(args[a])) {
+				} else {
+					System.out.print("数字が重複しています。");
+					return;
+				}
 			}
-			for (c = 0; c < 10; c++) {
-				System.out.print(sort[c] + " ");
-			}
-
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("数字が10個ではありませんされていません");
+			System.out.print(sort[c] + " ");
 		}
+
 		System.out.println();
 
 		//昇順ソート
