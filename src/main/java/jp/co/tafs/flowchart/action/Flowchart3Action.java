@@ -7,6 +7,7 @@ public class Flowchart3Action {
 		int b;
 		int[] sort = new int[10];
 
+		//入力チェック
 		for (c = 0; c < 10; c++) {
 			if (args[c].matches("^[-.0-9]+$")) {
 			} else {
@@ -25,18 +26,23 @@ public class Flowchart3Action {
 			}
 		}
 
+		//重複チェック
 		for (c = 0; c < args.length; c++) {
 			sort[c] = Integer.valueOf(args[c]);
 			for (int a = (c + 1); a < 10; a++) {
 				if (sort[c] != Integer.valueOf(args[a])) {
 				} else {
-					System.out.print("数字が重複しています。");
+					System.out.print(sort[c] + "が重複しています。");
 					return;
 				}
 			}
-			System.out.print(sort[c] + " ");
 		}
 
+		//初期表示
+		System.out.print("ソート前：" + " ");
+		for (c = 0; c < 10; c++) {
+			System.out.print(sort[c] + " ");
+		}
 		System.out.println();
 
 		//昇順ソート
@@ -49,6 +55,9 @@ public class Flowchart3Action {
 				}
 			}
 		}
+
+		//ソート後表示
+		System.out.print("ソート後：" + " ");
 		for (int z = 0; z < sort.length; z++) {
 			System.out.print(sort[z] + " ");
 		}

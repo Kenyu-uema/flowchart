@@ -1,6 +1,5 @@
 package jp.co.tafs.flowchart.action;
 
-
 public class Flowchart4Action {
 
 	public static void main(String[] args) {
@@ -17,7 +16,6 @@ public class Flowchart4Action {
 				System.out.println("数字以外があります。");
 				return;
 			}
-
 			if (Integer.valueOf(args[c]) >= 1 && Integer.valueOf(args[c]) <= 10) {
 			} else {
 				System.out.println("1～10ではありません。");
@@ -52,5 +50,7 @@ public class Flowchart4Action {
 			System.out.println("奇数の値が違います");
 			return;
 		}
+		System.out.println("奇数の合計：" + eSum);
+		System.out.println("偶数の合計：" + oSum);
 	}
 }

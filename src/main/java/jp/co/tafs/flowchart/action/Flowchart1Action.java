@@ -3,57 +3,51 @@ package jp.co.tafs.flowchart.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.seasar.struts.annotation.Execute;
-
 public class Flowchart1Action {
 
-	@Execute(validator = false)
 	public static void main(String[] args) {
-		List<String> ballbox = new ArrayList<String>();
-
-		String[] balltype;
-
+		List<String> balltype = new ArrayList<String>();
 		int[] count;
-		String message;
 
-		balltype = new String[3];
 		count = new int[3];
 
-		balltype[0] = ballbox.get(0);
-
 		int c;
-		int t = 1;
-		int x = 0;
 
-		//3種類のボールを特定
-		try {
-			for (x = 0; x < ballbox.size(); x++) {
-				if (balltype[0] == ballbox.get(x)) {
+		//種類の特定
+		balltype.add(args[0]);
+		for (int b = 0; b < args.length; b++) {
+			for (int a = 0; a < balltype.size(); a++) {
+				if (balltype.get(a).equals(args[b])) {
+					break;
 				} else {
-					if (balltype[1] == ballbox.get(x)) {
-					} else {
-						if (balltype[2] == ballbox.get(x)) {
-						} else {
-							balltype[t] = ballbox.get(x);
-							t = t + 1;
-						}
-					}
+				}
+				if ((a + 1) == balltype.size()) {
+					balltype.add(args[b]);
 				}
 			}
-		} catch (ArrayIndexOutOfBoundsException e) {
-			message = "3種類以上あります。";
 		}
 
-		//3種類のボールをカウント
-		for (t = 0; t < 3; t++) {
+		if (balltype.size() != 3) {
+			System.out.print("3種類ではありません。");
+			return;
+		}
+
+		//カウントの処理
+		for (int b = 0; b < balltype.size(); b++) {
 			c = 0;
-			for (x = 0; x < ballbox.size(); x++) {
-				if (balltype[t].equals(ballbox.get(x))) {
+			for (int a = 0; a < args.length; a++) {
+				if (balltype.get(b).equals(args[a])) {
 					c = c + 1;
-					count[t] = c;
+					count[b] = c;
 				} else {
 				}
 			}
+		}
+
+		//表示
+		for (c = 0; c < count.length; c++) {
+			System.out.println((c + 1) + "種類目：" + count[c]);
+
 		}
 	}
 }
