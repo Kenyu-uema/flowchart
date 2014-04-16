@@ -6,25 +6,18 @@ import java.util.List;
 import org.seasar.struts.annotation.Execute;
 
 public class Flowchart1Action {
-	public List<String> ballbox = new ArrayList<String>();
-
-	public String[] balltype;
-
-	public int[] count;
-	public String message;
 
 	@Execute(validator = false)
-	public String index() {
+	public static void main(String[] args) {
+		List<String> ballbox = new ArrayList<String>();
+
+		String[] balltype;
+
+		int[] count;
+		String message;
+
 		balltype = new String[3];
 		count = new int[3];
-		ballbox.add("野球ボール");
-		ballbox.add("テニスボール");
-		ballbox.add("ゴルフボール");
-		ballbox.add("テニスボール");
-		ballbox.add("ゴルフボール");
-		ballbox.add("野球ボール");
-		ballbox.add("野球ボール");
-		ballbox.add("ゴルフボール");
 
 		balltype[0] = ballbox.get(0);
 
@@ -62,6 +55,5 @@ public class Flowchart1Action {
 				}
 			}
 		}
-		return "flowchart1.jsp";
 	}
 }
