@@ -2,52 +2,46 @@ package jp.co.tafs.flowchart.action;
 
 import java.util.Random;
 
-import org.seasar.struts.annotation.Execute;
-
 public class Flowchart3Action {
 
-	public int[] sort = new int[10];
-	public int[] random = new int[10];
-	public String message;
-
-	@Execute(validator = false)
-	public String index() {
+	public static void main(String[] args) {
 		int c;
-		int b;
+		String b;
+		String[] sort = new String[10];
+		int[] random = new int[10];
+		String message;
 
 		Random ran = new Random();
 
-		//ランダムに10個の数を取得する。
-		for (c = 0; c < 10; c++) {
-			random[c] = ran.nextInt(89) + 10;
-			b = random[c];
-			for (c = 0; c < 10; c++) {
-				if (random[c] == b) {
-					break;
-				}
+		if (0 == 0) {
+
+		}
+
+		try {
+			for (c = 0; c < args.length; c++) {
+				sort[c] = args[c];
 			}
-		}
+			for (c = 0; c < 10; c++) {
+				System.out.print(sort[c] + " ");
+			}
 
-		if (random.length == 10) {
-		} else {
-			message = "数字が10個ではありません。";
-			return "flowchart3.jsp";
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("数字が10個ではありませんされていません");
 		}
-
-		for (c = 0; c < 10; c++) {
-			sort[c] = random[c];
-		}
+		System.out.println();
 
 		//昇順ソート
 		for (int y = 0; y < 9; y++) {
 			for (int x = (y + 1); x < 10; x++) {
-				if (sort[y] > sort[x]) {
+				if (Integer.valueOf(sort[y]) > Integer.valueOf(sort[x])) {
 					b = sort[y];
 					sort[y] = sort[x];
 					sort[x] = b;
 				}
 			}
 		}
-		return "flowchart3.jsp";
+		for (int z = 0; z < sort.length; z++) {
+			System.out.print(sort[z] + " ");
+		}
 	}
 }
