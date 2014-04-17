@@ -8,7 +8,6 @@ public class Flowchart2Action {
 		ArrayList<Integer> sin = new ArrayList<Integer>();
 		ArrayList<Integer> count = new ArrayList<Integer>();
 
-		int a;
 		int c = 0;
 
 		//エラーチェック
@@ -21,9 +20,9 @@ public class Flowchart2Action {
 		//進数変換
 		System.out.print(args[0] + "進数：");
 		int b = Integer.valueOf(args[0]);
-		for (a = 100; a > 0;) {
-			sin.add(a % b);
-			a = a / b;
+		for (int i = 100; i > 0;) {
+			sin.add(i % b);
+			i = i / b;
 			c = c + 1;
 		}
 		c = c - 1;

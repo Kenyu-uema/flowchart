@@ -15,14 +15,14 @@ public class Flowchart1Action {
 
 		//種類の特定
 		balltype.add(args[0]);
-		for (int b = 0; b < args.length; b++) {
-			for (int a = 0; a < balltype.size(); a++) {
-				if (balltype.get(a).equals(args[b])) {
+		for (int i = 0; i < args.length; i++) {
+			for (int k = 0; k < balltype.size(); k++) {
+				if (balltype.get(k).equals(args[i])) {
 					break;
 				} else {
 				}
-				if ((a + 1) == balltype.size()) {
-					balltype.add(args[b]);
+				if ((k + 1) == balltype.size()) {
+					balltype.add(args[i]);
 				}
 			}
 		}
@@ -33,12 +33,12 @@ public class Flowchart1Action {
 		}
 
 		//カウントの処理
-		for (int b = 0; b < balltype.size(); b++) {
+		for (int i = 0; i < balltype.size(); i++) {
 			c = 0;
-			for (int a = 0; a < args.length; a++) {
-				if (balltype.get(b).equals(args[a])) {
+			for (int k = 0; k < args.length; k++) {
+				if (balltype.get(i).equals(args[k])) {
 					c = c + 1;
-					count[b] = c;
+					count[i] = c;
 				} else {
 				}
 			}

@@ -5,33 +5,32 @@ public class Flowchart4Action {
 	public static void main(String[] args) {
 		int sum = 0;
 		int sub = 0;
-		int c;
 		int oSum = 0;
 		int eSum = 0;
 
 		//奇数と偶数に分けて合計する
-		for (c = 0; c < 10; c++) {
-			if (args[c].matches("^[-.0-9]+$")) {
+		for (int i = 0; i < 10; i++) {
+			if (args[i].matches("^[-.0-9]+$")) {
 			} else {
 				System.out.println("数字以外があります。");
 				return;
 			}
-			if (Integer.valueOf(args[c]) >= 1 && Integer.valueOf(args[c]) <= 10) {
+			if (Integer.valueOf(args[i]) >= 1 && Integer.valueOf(args[i]) <= 10) {
 			} else {
 				System.out.println("1～10ではありません。");
 				return;
 			}
 
-			if (Integer.valueOf(args[c]) % 2 == 0) {
-				oSum = oSum + Integer.valueOf(args[c]);
+			if (Integer.valueOf(args[i]) % 2 == 0) {
+				oSum = oSum + Integer.valueOf(args[i]);
 			} else {
-				eSum = eSum + Integer.valueOf(args[c]);
+				eSum = eSum + Integer.valueOf(args[i]);
 			}
 		}
 
 		//全部の合計値を求める
-		for (int e = 0; e < 10; e++) {
-			sum = sum + Integer.valueOf(args[e]);
+		for (int i = 0; i < 10; i++) {
+			sum = sum + Integer.valueOf(args[i]);
 		}
 
 		//偶数の合計を確認
