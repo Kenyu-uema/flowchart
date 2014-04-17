@@ -13,7 +13,7 @@ public class Flowchart2Action {
 		//エラーチェック
 		if (String.valueOf(args[0]).matches("^[-.0-9]+$")) {
 		} else {
-			System.out.print("数字以外があります。");
+			System.out.print("数字ではありません。");
 			return;
 		}
 

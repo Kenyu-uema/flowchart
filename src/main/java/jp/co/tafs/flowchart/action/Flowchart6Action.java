@@ -22,6 +22,7 @@ public class Flowchart6Action {
 				str.set(i, str.get(i).toUpperCase());
 			} else {
 				System.out.println("英文字以外が入力されています。");
+				return;
 			}
 		}
 
