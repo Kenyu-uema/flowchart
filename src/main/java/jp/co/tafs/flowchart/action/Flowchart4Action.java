@@ -8,7 +8,7 @@ public class Flowchart4Action {
 		int oSum = 0;
 		int eSum = 0;
 
-		//奇数と偶数に分けて合計する
+		//入力チェック
 		for (int i = 0; i < 10; i++) {
 			if (args[i].matches("^[-.0-9]+$")) {
 			} else {
@@ -21,8 +21,10 @@ public class Flowchart4Action {
 				return;
 			}
 
+			//奇数と偶数に分けて合計する
 			if (Integer.valueOf(args[i]) % 2 == 0) {
 				oSum = oSum + Integer.valueOf(args[i]);
+
 			} else {
 				eSum = eSum + Integer.valueOf(args[i]);
 			}

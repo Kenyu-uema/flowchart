@@ -25,16 +25,8 @@ public class Flowchart3Action {
 			}
 		}
 
-		//重複チェック
 		for (int i = 0; i < args.length; i++) {
 			sort[i] = Integer.valueOf(args[i]);
-			for (int k = (i + 1); k < 10; k++) {
-				if (sort[i] != Integer.valueOf(args[k])) {
-				} else {
-					System.out.print(sort[i] + "が重複しています。");
-					return;
-				}
-			}
 		}
 
 		//初期表示

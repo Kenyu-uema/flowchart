@@ -18,23 +18,23 @@ public class Flowchart7Action {
 		}
 
 		//基準値に初期値を設定
-		int max = Integer.valueOf(args[0]);
-		int min = Integer.valueOf(args[0]);
+		double max = Double.valueOf(args[0]);
+		double min = Double.valueOf(args[0]);
 
 		//最大値と最小値に振り分ける
 		for (int i = 1; i < 3; i++) {
-			if (Integer.valueOf(args[i]) > max) {
-				max = Integer.valueOf(args[i]);
+			if (Double.valueOf(args[i]) > max) {
+				max = Double.valueOf(args[i]);
 			}
-			if (Integer.valueOf(args[i]) < min) {
-				min = Integer.valueOf(args[i]);
+			if (Double.valueOf(args[i]) < min) {
+				min = Double.valueOf(args[i]);
 			}
 		}
 
 		//表示
 		System.out.print("入力された数値: ");
 		for (int i = 0; i < 3; i++) {
-			System.out.print(args[i] + " ");
+			System.out.print(Double.valueOf(args[i]) + " ");
 		}
 		System.out.println();
 		System.out.println("最大値: " + max);

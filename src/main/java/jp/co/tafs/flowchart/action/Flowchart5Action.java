@@ -8,9 +8,11 @@ public class Flowchart5Action {
 	public static void main(String[] args) {
 
 		List<String> eBox = new ArrayList<String>();
-		List<String> sBox = new ArrayList<String>();
-		String x;
+		List<Double> sBox = new ArrayList<Double>();
 		List<String> bBox = new ArrayList<String>();
+		String x;
+		double y;
+		double z;
 		int sc = 0;
 		int ec = 0;
 
@@ -20,16 +22,18 @@ public class Flowchart5Action {
 			return;
 		}
 		for (int i = 0; i < 20; i++) {
-			if (args[i].length() != 1) {
-				System.out.println(args[i] + " " + "1文字ではありません");
-				return;
+			if (args[i].matches("^[a-zA-Z]+$")) {
+				if (args[i].length() != 1) {
+					System.out.println(args[i] + " " + "1文字ではありません");
+					return;
+				}
 			}
 		}
 
 		//英字と数字を分別
 		for (int i = 0; i < 20; i++) {
 			if (args[i].matches("^[-.0-9]+$")) {
-				sBox.add(args[i]);
+				sBox.add(Double.valueOf(args[i]));
 				sc = sc + 1;
 			} else if (args[i].matches("^[a-zA-Z]+$")) {
 				eBox.add(args[i]);
@@ -43,17 +47,22 @@ public class Flowchart5Action {
 		//初期表示
 		System.out.print("ソート前:" + " ");
 		for (int i = 0; i < 20; i++) {
-			System.out.print(args[i] + " ");
+			if (args[i].matches("^[-.0-9]+$")) {
+				z = Double.valueOf(args[i]);
+				System.out.print(z + " ");
+			} else {
+				System.out.print(args[i] + " ");
+			}
 		}
 		System.out.println();
 
 		//数字のソート
 		for (int i = 0; i < (sc - 1); i++) {
 			for (int k = (i + 1); k < sc; k++) {
-				if (Integer.valueOf(sBox.get(i)) > Integer.valueOf(sBox.get(k))) {
-					x = sBox.get(i);
+				if (sBox.get(i) > sBox.get(k)) {
+					y = sBox.get(i);
 					sBox.set(i, sBox.get(k));
-					sBox.set(k, x);
+					sBox.set(k, y);
 				}
 			}
 		}
@@ -71,7 +80,7 @@ public class Flowchart5Action {
 
 		//結合
 		for (int i = 0; i < sc; i++) {
-			bBox.add(sBox.get(i));
+			bBox.add(Double.toString(sBox.get(i)));
 		}
 		for (int i = 0; i < ec; i++) {
 			bBox.add(eBox.get(i));

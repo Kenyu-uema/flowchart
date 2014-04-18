@@ -15,12 +15,18 @@ public class Flowchart8Action {
 		for (int i = 0; i < 10; i++) {
 			if (args[i].matches("^[-.0-9]+$")) {
 			} else {
-				System.out.println("数字以外が入力されています。");
+				System.out.println(args[i] + " 数字以外が入力されています。");
 				return;
 			}
-			if (args[i].matches("^(([1-9])|0)(\\.\\d)?$")) {
+			if (args[i].matches("^(([-.1-9]\\d{0,4})|0)(\\.\\d)?$")) {
 			} else {
 				System.out.println(args[i] + " 小数点第1位までです。");
+				return;
+			}
+			if (Double.valueOf(args[i]) >= 10 && Double.valueOf(args[i]) < 100) {
+			} else if (Double.valueOf(args[i]) <= -10 && Double.valueOf(args[i]) > -100) {
+			} else {
+				System.out.println(args[i] + " 2桁で入力してください。");
 				return;
 			}
 		}
@@ -35,6 +41,12 @@ public class Flowchart8Action {
 		ave = sum / c;
 
 		//表示
+		System.out.print("入力値: ");
+		for (int i = 0; i < 10; i++) {
+			System.out.print(args[i] + " ");
+		}
+		System.out.println();
+
 		System.out.printf("合計値: " + "%1.1f\n", sum);
 		System.out.printf("平均値: " + "%1.1f\n", ave);
 	}
