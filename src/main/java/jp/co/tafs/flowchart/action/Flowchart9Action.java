@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flowchart9Action {
+
 	public static void main(String[] args) {
 
 		Double box;

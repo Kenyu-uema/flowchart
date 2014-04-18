@@ -1,6 +1,7 @@
 package jp.co.tafs.flowchart.action;
 
 public class Flowchart8Action {
+
 	public static void main(String[] args) {
 
 		double sum = 0;

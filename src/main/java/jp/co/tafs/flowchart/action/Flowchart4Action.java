@@ -9,7 +9,7 @@ public class Flowchart4Action {
 		int eSum = 0;
 
 		//入力チェック
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < args.length; i++) {
 			if (args[i].matches("^[-.0-9]+$")) {
 			} else {
 				System.out.println("数字以外があります。");
@@ -31,7 +31,7 @@ public class Flowchart4Action {
 		}
 
 		//全部の合計値を求める
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < args.length; i++) {
 			sum = sum + Integer.valueOf(args[i]);
 		}
 
