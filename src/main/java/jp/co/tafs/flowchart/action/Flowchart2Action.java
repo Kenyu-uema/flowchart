@@ -21,34 +21,36 @@ public class Flowchart2Action {
 			System.out.print("数字ではありません。");
 			return;
 		}
-		int b = Integer.valueOf(args[0]);
 
 		//2進数変換
-		for (int i = b; i > 0;) {
+		int i = Integer.valueOf(args[0]);
+		while (i > 0) {
 			sin2.add(i % 2);
 			i = i / 2;
 			c = c + 1;
 		}
 		c = c - 1;
-		for (int i = c; i >= 0; i--) {
+		for (i = c; i >= 0; i--) {
 			count2.add(sin2.get(i));
 		}
 
 		//8進数
+		i = Integer.valueOf(args[0]);
 		c = 0;
-		for (int i = b; i > 0;) {
+		while (i > 0) {
 			sin8.add(i % 8);
 			i = i / 8;
 			c = c + 1;
 		}
 		c = c - 1;
-		for (int i = c; i >= 0; i--) {
+		for (i = c; i >= 0; i--) {
 			count8.add(sin8.get(i));
 		}
 
 		//16進数
+		i = Integer.valueOf(args[0]);
 		c = 0;
-		for (int i = b; i > 0;) {
+		while (i > 0) {
 			switch (i % 16) {
 			case 10:
 				x = "A";
@@ -77,25 +79,25 @@ public class Flowchart2Action {
 			c = c + 1;
 		}
 		c = c - 1;
-		for (int i = c; i >= 0; i--) {
+		for (i = c; i >= 0; i--) {
 			count16.add(sin16.get(i));
 		}
 
 		//表示
-		System.out.print("2進数：");
-		for (int i = 0; i < count2.size(); i++) {
+		System.out.print("2進数： ");
+		for (i = 0; i < count2.size(); i++) {
 			System.out.print(count2.get(i));
 		}
 		System.out.println();
 
-		System.out.print("8進数：");
-		for (int i = 0; i < count8.size(); i++) {
+		System.out.print("8進数： ");
+		for (i = 0; i < count8.size(); i++) {
 			System.out.print(count8.get(i));
 		}
 		System.out.println();
 
 		System.out.print("16進数：");
-		for (int i = 0; i < count16.size(); i++) {
+		for (i = 0; i < count16.size(); i++) {
 			System.out.print(count16.get(i));
 		}
 

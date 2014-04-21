@@ -18,8 +18,7 @@ public class Flowchart3Action {
 				System.out.print("2桁以外の数字があります。");
 				return;
 			}
-			if (args.length == 10) {
-			} else {
+			if (args.length != 10) {
 				System.out.print("数字の数が10個ではありません。");
 				return;
 			}

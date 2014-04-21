@@ -37,17 +37,14 @@ public class Flowchart4Action {
 
 		//偶数の合計を確認
 		sub = sum - oSum;
-		if (sub == eSum) {
-		} else {
+		if (sub != eSum) {
 			System.out.println("偶数の値が違います");
 			return;
 		}
 
 		//奇数の合計を確認
 		sub = sum - eSum;
-		if (sub == oSum) {
-
-		} else {
+		if (sub != oSum) {
 			System.out.println("奇数の値が違います");
 			return;
 		}

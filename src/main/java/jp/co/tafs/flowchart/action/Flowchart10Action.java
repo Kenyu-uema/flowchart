@@ -25,8 +25,16 @@ public class Flowchart10Action {
 
 		//閏年判定
 		ad = args[0];
-		if (Integer.valueOf(ad) % 4 == 0 && Integer.valueOf(ad) % 100 != 0 || Integer.valueOf(ad) % 400 == 0) {
-			ad = ad + "年【閏年】";
+		if (Integer.valueOf(ad) % 4 == 0) {
+			if (Integer.valueOf(ad) % 100 == 0) {
+				if (Integer.valueOf(ad) % 400 == 0) {
+					ad = ad + "年【閏年】";
+				} else {
+					ad = ad + "年";
+				}
+			} else {
+				ad = ad + "年【閏年】";
+			}
 		} else {
 			ad = ad + "年";
 		}

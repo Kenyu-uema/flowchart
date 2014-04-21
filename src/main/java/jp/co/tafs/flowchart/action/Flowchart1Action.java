@@ -39,7 +39,6 @@ public class Flowchart1Action {
 				if (balltype.get(i).equals(args[k])) {
 					c = c + 1;
 					count[i] = c;
-				} else {
 				}
 			}
 		}
