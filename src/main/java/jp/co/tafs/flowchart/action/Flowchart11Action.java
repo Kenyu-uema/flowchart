@@ -30,6 +30,8 @@ public class Flowchart11Action {
 		}
 
 		String[] date = args[0].split("\\/");
+		String[] ad = { "1868/01/25", "1912/07/30", "1926/12/25", "1989/01/08" };
+		String[] jc = { "明治", "大正", "昭和", "平成" };
 		int sum;
 		int ySum = 0;
 		int mSum = 0;
@@ -37,96 +39,87 @@ public class Flowchart11Action {
 		int sySum = 0;
 		int smSum = 0;
 		int sdSum = 0;
-		int y = Integer.valueOf(date[0]);
-		int m = Integer.valueOf(date[1]);
-		int d = Integer.valueOf(date[2]);
-		int sy = Integer.valueOf(sdate[0]);
-		int sm = Integer.valueOf(sdate[1]);
-		int sd = Integer.valueOf(sdate[2]);
+		int year = Integer.valueOf(date[0]);
+		int mon = Integer.valueOf(date[1]);
+		int day = Integer.valueOf(date[2]);
+		int syear = Integer.valueOf(sdate[0]);
+		int smon = Integer.valueOf(sdate[1]);
+		int sday = Integer.valueOf(sdate[2]);
 		String wareki = null;
 
 		//入力日の日数計算
 		if (Integer.valueOf(date[1]) >= 3) {
-			ySum = ySum + (y * 365);
-			ySum = ySum + (y / 4);
-			ySum = ySum - (y / 100);
-			ySum = ySum + (y / 400);
-			mSum = mSum + (m * 30);
-			mSum = mSum + ((m + 1) * 3 / 5 - 33);
+			ySum = ySum + (year * 365);
+			ySum = ySum + (year / 4);
+			ySum = ySum - (year / 100);
+			ySum = ySum + (year / 400);
+			mSum = mSum + (mon * 30);
+			mSum = mSum + ((mon + 1) * 3 / 5 - 33);
 		} else {
-			ySum = ySum + ((y - 1) * 365);
-			ySum = ySum + ((y - 1) / 4);
-			ySum = ySum - ((y - 1) / 100);
-			ySum = ySum + ((y - 1) / 400);
-			mSum = mSum + ((m + 12) * 30);
-			mSum = mSum + (((m + 12) + 1) * 3 / 5 - 33);
+			ySum = ySum + ((year - 1) * 365);
+			ySum = ySum + ((year - 1) / 4);
+			ySum = ySum - ((year - 1) / 100);
+			ySum = ySum + ((year - 1) / 400);
+			mSum = mSum + ((mon + 12) * 30);
+			mSum = mSum + (((mon + 12) + 1) * 3 / 5 - 33);
 		}
-		dSum = ySum + mSum + d;
+		dSum = ySum + mSum + day;
 
 		//システム日付の日数計算
 		if (Integer.valueOf(date[1]) >= 3) {
-			sySum = sySum + (sy * 365);
-			sySum = sySum + (sy / 4);
-			sySum = sySum - (sy / 100);
-			sySum = sySum + (sy / 400);
-			smSum = smSum + (sm * 30);
-			smSum = smSum + ((sm + 1) * 3 / 5 - 33);
+			sySum = sySum + (syear * 365);
+			sySum = sySum + (syear / 4);
+			sySum = sySum - (syear / 100);
+			sySum = sySum + (syear / 400);
+			smSum = smSum + (smon * 30);
+			smSum = smSum + ((smon + 1) * 3 / 5 - 33);
 		} else {
-			sySum = sySum + ((sy - 1) * 365);
-			sySum = sySum + ((sy - 1) / 4);
-			sySum = sySum - ((sy - 1) / 100);
-			sySum = sySum + ((sy - 1) / 400);
-			smSum = smSum + ((sm + 12) * 30);
-			smSum = smSum + (((sm + 12) + 1) * 3 / 5 - 33);
+			sySum = sySum + ((syear - 1) * 365);
+			sySum = sySum + ((syear - 1) / 4);
+			sySum = sySum - ((syear - 1) / 100);
+			sySum = sySum + ((syear - 1) / 400);
+			smSum = smSum + ((smon + 12) * 30);
+			smSum = smSum + (((smon + 12) + 1) * 3 / 5 - 33);
 		}
-		sdSum = sySum + smSum + sd;
+		sdSum = sySum + smSum + sday;
 
 		//経過日数の計算
 		sum = sdSum - dSum;
 
 		//和暦の計算
-		if (y >= 1989) {
-			if (y == 1989) {
-				if (m == 1 && d < 8) {
-					wareki = "昭和" + (y - 1925) + "年";
+		int c = 0;
+		String[] date2 = new String[3];
+		for (int i = 0; i < ad.length; i++) {
+			date2 = ad[i].split("\\/");
+			if (Integer.valueOf(date2[0]) <= year) {
+				if (Integer.valueOf(date2[0]) == year) {
+					if (mon == Integer.valueOf(date2[1]) && day < Integer.valueOf(date2[2])) {
+						date2 = ad[i - 1].split("\\/");
+						break;
+					} else {
+						c = c + 1;
+						date2 = ad[i].split("\\/");
+						break;
+					}
 				} else {
-					wareki = "平成" + (y - 1988) + "年";
+					c = c + 1;
 				}
 			} else {
-				wareki = "平成" + (y - 1988) + "年";
-			}
-		} else {
-			if (y < 1989 && y >= 1926) {
-				if (y == 1926) {
-					if (m == 12 && d < 25) {
-						wareki = "大正" + (y - 1911) + "年";
-					} else {
-						wareki = "昭和" + (y - 1925) + "年";
-					}
+				if (c > 0) {
+					date2 = ad[i - 1].split("\\/");
+					break;
 				} else {
-					wareki = "昭和" + (y - 1925) + "年";
+					break;
 				}
-			} else {
-				if (y < 1926 && y >= 1912) {
-					if (y == 1912) {
-						if (m == 7 && d < 30) {
-							wareki = "明治" + (y - 1867) + "年";
-						} else {
-							wareki = "大正" + (y - 1911) + "年";
-						}
-					} else {
-						wareki = "大正" + (y - 1911) + "年";
-					}
-				} else {
-					if (y < 1912 && y >= 1873) {
-						wareki = "明治" + (y - 1867) + "年";
-					} else {
-						wareki = "明治6年以前";
-					}
-				}
+
 			}
 		}
 
+		if (c > 0) {
+			wareki = jc[c - 1] + (year - (Integer.valueOf(date2[0]) - 1)) + "年";
+		} else {
+			wareki = jc[c] + "以前";
+		}
 		//表示
 		System.out.println("経過日数: " + sum + "日");
 		System.out.println("和暦: " + wareki);
