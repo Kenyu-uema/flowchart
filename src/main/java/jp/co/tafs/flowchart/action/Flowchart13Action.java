@@ -28,9 +28,9 @@ public class Flowchart13Action {
 
 		dSum = change(year, mon, day);
 
+		//曜日の特定
 		int rem = dSum % 7;
 
-		//曜日の特定
 		String week = null;
 
 		switch (rem) {
