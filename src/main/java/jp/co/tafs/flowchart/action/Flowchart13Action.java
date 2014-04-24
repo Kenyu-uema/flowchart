@@ -61,19 +61,18 @@ public class Flowchart13Action {
 		System.out.println(args[0] + "は" + week);
 	}
 
+	//日数計算の処理
 	public static int change(int year, int mon, int day) {
 
-		int ySum;
-		int mSum;
-		if (mon >= 3) {
-			ySum = year + (year / 4) - (year / 100) + (year / 400);
-			mSum = (int) ((2.6 * mon) + 1.6) + day;
-		} else {
-			ySum = (year - 1) + ((year - 1) / 4) - ((year - 1) / 100) + ((year - 1) / 400);
-			mSum = (int) ((2.6 * (mon + 12)) + 1.6) + day;
+		if (mon < 3) {
+			year = year - 1;
+			mon = mon + 12;
 		}
 
+		int ySum = year + (year / 4) - (year / 100) + (year / 400);
+		int mSum = (int) ((2.6 * mon) + 1.6) + day;
 		int dSum = ySum + mSum;
+
 		return dSum;
 	}
 }

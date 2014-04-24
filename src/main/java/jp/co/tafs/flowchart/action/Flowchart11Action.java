@@ -78,7 +78,6 @@ public class Flowchart11Action {
 				} else {
 					break;
 				}
-
 			}
 		}
 
@@ -94,29 +93,18 @@ public class Flowchart11Action {
 		System.out.println("和暦: " + wareki);
 	}
 
+	//日数計算の処理
 	public static int change(int year, int mon, int day) {
 
-		int ySum;
-		int mSum;
-		if (mon >= 3) {
-			ySum = (year * 365);
-			ySum = ySum + (year / 4);
-			ySum = ySum - (year / 100);
-			ySum = ySum + (year / 400);
-
-			mSum = (mon * 30);
-			mSum = mSum + ((mon + 1) * 3 / 5 - 33);
-		} else {
-			ySum = ((year - 1) * 365);
-			ySum = ySum + ((year - 1) / 4);
-			ySum = ySum - ((year - 1) / 100);
-			ySum = ySum + ((year - 1) / 400);
-
-			mSum = ((mon + 12) * 30);
-			mSum = mSum + (((mon + 12) + 1) * 3 / 5 - 33);
+		if (mon < 3) {
+			year = year - 1;
+			mon = mon + 12;
 		}
 
+		int ySum = (year * 365) + (year / 4) - (year / 100) + (year / 400);
+		int mSum = (mon * 30) + ((mon + 1) * 3 / 5 - 33);
 		int dSum = ySum + mSum + day;
+
 		return dSum;
 	}
 
