@@ -3,6 +3,8 @@ package jp.co.tafs.flowchart.action;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Flowchart13Action {
 
@@ -24,35 +26,32 @@ public class Flowchart13Action {
 		int year = Integer.valueOf(date[0]);
 		int mon = Integer.valueOf(date[1]);
 		int day = Integer.valueOf(date[2]);
-		int dSum = 0;
 
-		dSum = change(year, mon, day);
+		Calendar cal1 = new GregorianCalendar(year, mon - 1, day);
 
 		//曜日の特定
-		int rem = dSum % 7;
-
 		String week = null;
 
-		switch (rem) {
-		case 0:
+		switch (cal1.get(Calendar.DAY_OF_WEEK)) {
+		case 1:
 			week = "日曜日";
 			break;
-		case 1:
+		case 2:
 			week = "月曜日";
 			break;
-		case 2:
+		case 3:
 			week = "火曜日";
 			break;
-		case 3:
+		case 4:
 			week = "水曜日";
 			break;
-		case 4:
+		case 5:
 			week = "木曜日";
 			break;
-		case 5:
+		case 6:
 			week = "金曜日";
 			break;
-		case 6:
+		case 7:
 			week = "土曜日";
 			break;
 		}
@@ -61,18 +60,4 @@ public class Flowchart13Action {
 		System.out.println(args[0] + "は" + week);
 	}
 
-	//日数計算の処理
-	public static int change(int year, int mon, int day) {
-
-		if (mon < 3) {
-			year = year - 1;
-			mon = mon + 12;
-		}
-
-		int ySum = year + (year / 4) - (year / 100) + (year / 400);
-		int mSum = (int) ((2.6 * mon) + 1.6) + day;
-		int dSum = ySum + mSum;
-
-		return dSum;
-	}
 }
