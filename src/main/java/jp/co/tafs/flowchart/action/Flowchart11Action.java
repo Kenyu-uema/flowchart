@@ -3,7 +3,9 @@ package jp.co.tafs.flowchart.action;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Flowchart11Action {
 
@@ -22,7 +24,6 @@ public class Flowchart11Action {
 
 		Date systemdate = new Date();
 		SimpleDateFormat sys = new SimpleDateFormat("yyyy/MM/dd");
-		String[] sdate = sys.format(systemdate).split("\\/");
 
 		if (args[0].compareTo(sys.format(systemdate)) > 0) {
 			System.out.println(args[0] + "   " + sys.format(systemdate) + "より前の日付を入力してください");
@@ -34,38 +35,41 @@ public class Flowchart11Action {
 		int year = Integer.valueOf(date[0]);
 		int mon = Integer.valueOf(date[1]);
 		int day = Integer.valueOf(date[2]);
-		int dSum;
 
-		dSum = change(year, mon, day);
-
-		//システム日付の日数計算
-		int syear = Integer.valueOf(sdate[0]);
-		int smon = Integer.valueOf(sdate[1]);
-		int sday = Integer.valueOf(sdate[2]);
-		int sdSum;
-
-		sdSum = change(syear, smon, sday);
+		//システム日付の計算
+		Calendar calendar = Calendar.getInstance();
+		int syear = calendar.get(Calendar.YEAR);
+		int smon = calendar.get(Calendar.MONTH) + 1;
+		int sday = calendar.get(Calendar.DATE);
 
 		//経過日数の計算
-		int sum;
-		sum = sdSum - dSum;
+		Calendar cal1 = new GregorianCalendar(year, mon - 1, day);
+		Calendar cal2 = new GregorianCalendar(syear, smon, sday);
+
+		long mday = 0;
+
+		mday = (cal2.getTimeInMillis() - cal1.getTimeInMillis()) / (24 * 60 * 60 * 1000);
 
 		//和暦の計算
 		int c = 0;
-		String[] ad = { "1868/01/25", "1912/07/30", "1926/12/25", "1989/01/08" };
-		String[] jc = { "明治", "大正", "昭和", "平成" };
 		String[] date2 = new String[3];
 
-		for (int i = 0; i < ad.length; i++) {
-			date2 = ad[i].split("\\/");
+		Wareki wareki[] = new Wareki[4];
+		wareki[0] = new Wareki("1868/01/25", "明治");
+		wareki[1] = new Wareki("1912/07/30", "大正");
+		wareki[2] = new Wareki("1926/12/25", "昭和");
+		wareki[3] = new Wareki("1989/01/08", "平成");
+
+		for (int i = 0; i < wareki.length; i++) {
+			date2 = wareki[i].ad.split("\\/");
 			if (Integer.valueOf(date2[0]) <= year) {
 				if (Integer.valueOf(date2[0]) == year) {
 					if (mon == Integer.valueOf(date2[1]) && day < Integer.valueOf(date2[2])) {
-						date2 = ad[i - 1].split("\\/");
+						date2 = wareki[i - 1].ad.split("\\/");
 						break;
 					} else {
 						c = c + 1;
-						date2 = ad[i].split("\\/");
+						date2 = wareki[i].ad.split("\\/");
 						break;
 					}
 				} else {
@@ -73,7 +77,7 @@ public class Flowchart11Action {
 				}
 			} else {
 				if (c > 0) {
-					date2 = ad[i - 1].split("\\/");
+					date2 = wareki[i - 1].ad.split("\\/");
 					break;
 				} else {
 					break;
@@ -81,31 +85,25 @@ public class Flowchart11Action {
 			}
 		}
 
-		String wareki = null;
+		String des = null;
 		if (c > 0) {
-			wareki = jc[c - 1] + (year - (Integer.valueOf(date2[0]) - 1)) + "年";
+			des = wareki[c - 1].js + (year - (Integer.valueOf(date2[0]) - 1)) + "年";
 		} else {
-			wareki = jc[c] + "以前";
+			des = wareki[c].js + "以前";
 		}
 
 		//表示
-		System.out.println("経過日数: " + sum + "日");
-		System.out.println("和暦: " + wareki);
+		System.out.println("経過日数: " + mday + "日");
+		System.out.println("和暦: " + des);
 	}
 
-	//日数計算の処理
-	public static int change(int year, int mon, int day) {
+	static class Wareki {
+		String ad;
+		String js;
 
-		if (mon < 3) {
-			year = year - 1;
-			mon = mon + 12;
+		Wareki(String ad, String js) {
+			this.ad = ad;
+			this.js = js;
 		}
-
-		int ySum = (year * 365) + (year / 4) - (year / 100) + (year / 400);
-		int mSum = (mon * 30) + ((mon + 1) * 3 / 5 - 33);
-		int dSum = ySum + mSum + day;
-
-		return dSum;
 	}
-
 }
