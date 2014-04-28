@@ -3,6 +3,8 @@ package jp.co.tafs.flowchart.action;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Flowchart12Action {
 
@@ -25,49 +27,29 @@ public class Flowchart12Action {
 		int year = Integer.valueOf(date[0]);
 		int mon = Integer.valueOf(date[1]);
 		int day = Integer.valueOf(date[2]);
-		int dSum = 0;
-
-		dSum = change(year, mon, day);
 
 		//2つめの日数計算
 		String[] sdate = args[1].split("\\/");
 		int syear = Integer.valueOf(sdate[0]);
 		int smon = Integer.valueOf(sdate[1]);
 		int sday = Integer.valueOf(sdate[2]);
-		int sdSum = 0;
 
-		sdSum = change(syear, smon, sday);
-
-		//経過日数と経過時間の計算
-		int sum = 0;
+		Calendar cal1 = new GregorianCalendar(year, mon - 1, day);
+		Calendar cal2 = new GregorianCalendar(syear, smon - 1, sday);
 		int tSum = 0;
+		long mday = 0;
 
-		if (dSum >= sdSum) {
-			sum = dSum - sdSum;
-			tSum = sum * 24;
+		//経過日数の計算と経過時間の計算
+		if (cal1.getTimeInMillis() >= cal2.getTimeInMillis()) {
+			mday = (cal1.getTimeInMillis() - cal2.getTimeInMillis()) / (24 * 60 * 60 * 1000);
+			tSum = (int) (mday * 24);
 		} else {
-			sum = sdSum - dSum;
-			tSum = sum * 24;
+			mday = (cal2.getTimeInMillis() - cal1.getTimeInMillis()) / (24 * 60 * 60 * 1000);
+			tSum = (int) (mday * 24);
 		}
-
 		//表示
-		System.out.println("経過日数: " + sum + "日");
+		System.out.println("経過日数: " + mday + "日");
 		System.out.println("経過時間: " + tSum + "時間");
-	}
-
-	//日数計算の処理
-	public static int change(int year, int mon, int day) {
-
-		if (mon < 3) {
-			year = year - 1;
-			mon = mon + 12;
-		}
-
-		int ySum = (year * 365) + (year / 4) - (year / 100) + (year / 400);
-		int mSum = (mon * 30) + ((mon + 1) * 3 / 5 - 33);
-		int dSum = ySum + mSum + day;
-
-		return dSum;
 	}
 
 }
