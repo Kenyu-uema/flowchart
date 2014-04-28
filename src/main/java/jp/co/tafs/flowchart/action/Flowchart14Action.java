@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Flowchart14Action {
 	public static void main(String[] args) {
@@ -33,9 +35,8 @@ public class Flowchart14Action {
 		//日数計算
 		int year = Integer.valueOf(date[0]);
 		int mon = Integer.valueOf(date[1]);
-		int dSum = 0;
 
-		dSum = change(year, mon);
+		Calendar cal1 = new GregorianCalendar(year, mon - 1, 1);
 
 		//営業日の特定
 		int[] end = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -51,7 +52,7 @@ public class Flowchart14Action {
 				}
 			}
 		}
-		bDay = businessDay(end[mon - 1], dSum);
+		bDay = businessDay(end[mon - 1], cal1);
 
 		//表示
 		System.out.println(args[0] + "の営業日は");
@@ -60,31 +61,16 @@ public class Flowchart14Action {
 		}
 	}
 
-	//日数計算の処理
-	public static int change(int year, int mon) {
-
-		if (mon < 3) {
-			year = year - 1;
-			mon = mon + 12;
-		}
-
-		int ySum = year + (year / 4) - (year / 100) + (year / 400);
-		int mSum = (int) ((2.6 * mon) + 1.6) + 1;
-		int dSum = ySum + mSum;
-
-		return dSum;
-	}
-
 	//営業日特定の処理
-	public static ArrayList<Integer> businessDay(int end, int dSum) {
+	public static ArrayList<Integer> businessDay(int end, Calendar cal1) {
 		int e = 0;
 		ArrayList<Integer> bDay = new ArrayList<Integer>();
 		for (int i = 1; i < end + 1; i++) {
-			if (dSum % 7 != 0 && dSum % 7 != 6) {
+			if (cal1.get(Calendar.DAY_OF_WEEK) != 1 && cal1.get(Calendar.DAY_OF_WEEK) != 7) {
 				bDay.add(i);
 				e = e + 1;
 			}
-			dSum = dSum + 1;
+			cal1.add(Calendar.DATE, 1);
 		}
 		return bDay;
 	}
