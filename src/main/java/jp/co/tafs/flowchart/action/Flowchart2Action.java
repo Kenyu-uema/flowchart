@@ -5,13 +5,6 @@ import java.util.ArrayList;
 public class Flowchart2Action {
 
 	public static void main(String[] args) {
-		ArrayList<Integer> sin2 = new ArrayList<Integer>();
-		ArrayList<Integer> count2 = new ArrayList<Integer>();
-		ArrayList<Integer> sin8 = new ArrayList<Integer>();
-		ArrayList<Integer> count8 = new ArrayList<Integer>();
-		ArrayList<String> sin16 = new ArrayList<String>();
-		ArrayList<String> count16 = new ArrayList<String>();
-		String x;
 
 		int c = 0;
 
@@ -23,7 +16,10 @@ public class Flowchart2Action {
 		}
 
 		//2進数変換
+		ArrayList<Integer> sin2 = new ArrayList<Integer>();
+		ArrayList<Integer> count2 = new ArrayList<Integer>();
 		int i = Integer.valueOf(args[0]);
+
 		while (i > 0) {
 			sin2.add(i % 2);
 			i = i / 2;
@@ -35,8 +31,11 @@ public class Flowchart2Action {
 		}
 
 		//8進数
+		ArrayList<Integer> sin8 = new ArrayList<Integer>();
+		ArrayList<Integer> count8 = new ArrayList<Integer>();
 		i = Integer.valueOf(args[0]);
 		c = 0;
+
 		while (i > 0) {
 			sin8.add(i % 8);
 			i = i / 8;
@@ -48,8 +47,12 @@ public class Flowchart2Action {
 		}
 
 		//16進数
+		ArrayList<String> sin16 = new ArrayList<String>();
+		ArrayList<String> count16 = new ArrayList<String>();
 		i = Integer.valueOf(args[0]);
 		c = 0;
+		String x;
+
 		while (i > 0) {
 			switch (i % 16) {
 			case 10:
@@ -102,4 +105,5 @@ public class Flowchart2Action {
 		}
 
 	}
+
 }

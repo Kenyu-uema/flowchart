@@ -3,8 +3,6 @@ package jp.co.tafs.flowchart.action;
 public class Flowchart3Action {
 
 	public static void main(String[] args) {
-		int b;
-		int[] sort = new int[10];
 
 		//入力チェック
 		for (int i = 0; i < 10; i++) {
@@ -24,6 +22,8 @@ public class Flowchart3Action {
 			}
 		}
 
+		int[] sort = new int[10];
+
 		for (int i = 0; i < args.length; i++) {
 			sort[i] = Integer.valueOf(args[i]);
 		}
@@ -36,6 +36,8 @@ public class Flowchart3Action {
 		System.out.println();
 
 		//昇順ソート
+		int b;
+
 		for (int i = 0; i < 9; i++) {
 			for (int k = (i + 1); k < 10; k++) {
 				if (Integer.valueOf(sort[i]) > Integer.valueOf(sort[k])) {

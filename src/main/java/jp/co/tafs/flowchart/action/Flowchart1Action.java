@@ -6,20 +6,15 @@ import java.util.List;
 public class Flowchart1Action {
 
 	public static void main(String[] args) {
-		List<String> balltype = new ArrayList<String>();
-		int[] count;
-
-		count = new int[3];
-
-		int c;
 
 		//種類の特定
+		List<String> balltype = new ArrayList<String>();
+
 		balltype.add(args[0]);
 		for (int i = 0; i < args.length; i++) {
 			for (int k = 0; k < balltype.size(); k++) {
 				if (balltype.get(k).equals(args[i])) {
 					break;
-				} else {
 				}
 				if ((k + 1) == balltype.size()) {
 					balltype.add(args[i]);
@@ -33,6 +28,10 @@ public class Flowchart1Action {
 		}
 
 		//カウントの処理
+		int c;
+		int[] count;
+		count = new int[3];
+
 		for (int i = 0; i < balltype.size(); i++) {
 			c = 0;
 			for (int k = 0; k < args.length; k++) {

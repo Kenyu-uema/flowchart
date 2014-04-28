@@ -3,12 +3,10 @@ package jp.co.tafs.flowchart.action;
 public class Flowchart4Action {
 
 	public static void main(String[] args) {
-		int sum = 0;
-		int sub = 0;
-		int oSum = 0;
-		int eSum = 0;
 
 		//入力チェック
+		int oSum = 0;
+		int eSum = 0;
 		for (int i = 0; i < args.length; i++) {
 			if (args[i].matches("^[-.0-9]+$")) {
 			} else {
@@ -24,18 +22,21 @@ public class Flowchart4Action {
 			//奇数と偶数に分けて合計する
 			if (Integer.valueOf(args[i]) % 2 == 0) {
 				oSum = oSum + Integer.valueOf(args[i]);
-
 			} else {
 				eSum = eSum + Integer.valueOf(args[i]);
 			}
 		}
 
 		//全部の合計値を求める
+		int sum = 0;
+
 		for (int i = 0; i < args.length; i++) {
 			sum = sum + Integer.valueOf(args[i]);
 		}
 
 		//偶数の合計を確認
+		int sub = 0;
+
 		sub = sum - oSum;
 		if (sub != eSum) {
 			System.out.println("偶数の値が違います");
